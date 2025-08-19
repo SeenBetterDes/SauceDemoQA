@@ -1,0 +1,1 @@
+{"uuid":"159491bf-e1df-451c-b064-b4a12c28dc0a","name":"tests.BaseTest.teardown","children":["550000d1-c37d-4807-9f98-1828cc1f2f63"],"description":"","befores":[],"afters":[{"name":"teardown","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1755642453452,"stop":1755642453905}],"start":1755642453452,"stop":1755642453905}

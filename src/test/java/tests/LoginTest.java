@@ -95,7 +95,7 @@ public class LoginTest extends BaseTest {
                         break;
                     // TC 9
                     case "InventoryImages.cart":
-                        Assert.assertTrue(product.error_check());
+                        Assert.assertTrue(product.errorCheck());
                         System.out.println("Error login - Test passed");
                         }
                 }

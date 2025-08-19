@@ -16,20 +16,25 @@ public class BaseTest {
     @Parameters("browser")
     @BeforeMethod(alwaysRun = true)
     public void Setup(@Optional("chrome") String browser) {
-        String userDir = System.getProperty("java.io.tmpdir") + UUID.randomUUID();
+        String tmpDir = System.getProperty("java.io.tmpdir");
         if(browser.equals("chrome")) {
+            String userDir = tmpDir + "/chrome-" + UUID.randomUUID();
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--headless=new");
             options.addArguments("--no-sandbox");
             options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--disable-gpu");
+            options.addArguments("--remote-allow-origins=*");
             options.addArguments("--user-data-dir=" + userDir);
             driver = new ChromeDriver(options);
         } else if (browser.equals("firefox")) {
+            String userDir = tmpDir + "/firefox-" + UUID.randomUUID();
             FirefoxOptions options = new FirefoxOptions();
             options.addArguments("--headless");
             options.addArguments("--no-sandbox");
             options.addArguments("--disable-dev-shm-usage");
-            options.addArguments("--user-data-dir=" + userDir);
+            options.addArguments("-profile");
+            options.addArguments(userDir);
             driver = new FirefoxDriver(options);
         } else {
             throw new IllegalArgumentException("Browser not yet supported" + browser);

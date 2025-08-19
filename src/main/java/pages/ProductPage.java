@@ -179,7 +179,7 @@ public class ProductPage {
         int cartNum = Integer.parseInt(cartNumber);
         if (cartNum == 1) {
             removeItemButton("sauce-labs-bolt-t-shirt").click();
-            wait.until(ExpectedConditions.or(ExpectedConditions.invisibilityOfElementLocated(cart), ExpectedConditions.textToBe(cart, "")));
+            wait.until(driver -> driver.findElement(cart).getText().isEmpty());
         }
         cartNumber = driver.findElement(cart).getText();
         cartNum = cartNumber.isEmpty() ? 0 : Integer.parseInt(cartNumber);
@@ -258,7 +258,8 @@ public class ProductPage {
             return false;
         }
         driver.findElement(wrapperMenu).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(sidebar));
+        WebElement side = wait.until(ExpectedConditions.presenceOfElementLocated(sidebar));
+        wait.until(driver -> side.getCssValue("transform").equals("none") || side.isDisplayed());
         WebElement ResetBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(wrapperReset));
         safeClick(ResetBtn);
         String afterReset = driver.findElement(cart).getText();

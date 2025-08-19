@@ -8,6 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.*;
 
+import java.io.File;
 import java.util.UUID;
 
 public class BaseTest {
@@ -29,6 +30,8 @@ public class BaseTest {
             driver = new ChromeDriver(options);
         } else if (browser.equals("firefox")) {
             String userDir = tmpDir + "/firefox-" + UUID.randomUUID();
+            File profileDir = new File(userDir);
+            profileDir.mkdirs();
             FirefoxOptions options = new FirefoxOptions();
             options.addArguments("--headless");
             options.addArguments("--no-sandbox");

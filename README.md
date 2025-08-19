@@ -2,6 +2,7 @@
 ![Java](https://img.shields.io/badge/java-11+-blue)
 ![TestNG](https://img.shields.io/badge/testng-framework-orange)
 ![Allure](https://img.shields.io/badge/report-Allure-purple)
+[![Java CI](https://github.com/SeenBetterDes/SauceDemoQA/actions/workflows/JavaCI.yml/badge.svg)](https://github.com/SeenBetterDes/SauceDemoQA/actions/workflows/JavaCI.yml)
 # Selenium Test Automation Project : Java + Maven
 
 ## Overview

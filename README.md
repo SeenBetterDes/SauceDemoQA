@@ -118,3 +118,4 @@ Allure Reports can be generated via terminal commands:
 ``allure serve target/allure-results``
 
 **Note: This project is intended as a personal portfolio showcase.**
+This project is licensed under the [MIT License](LICENSE).

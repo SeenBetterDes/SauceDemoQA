@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SauceDemo Suite" parallel="tests" thread-count="4">
+    <listeners>
+        <listener class-name="listeners.AllureListener"/>
+    </listeners>
+    <test name="SmokeSuite - Chrome">
+        <parameter name="browser" value="chrome"/>
+        <groups>
+            <run>
+                <include name="smoke">
+                </include>
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.LoginTest"/>
+            <class name="tests.InventoryTest"/>
+        </classes>
+    </test>
+    <test name="SmokeSuite - Firefox">
+        <parameter name="browser" value="firefox"/>
+        <groups>
+            <run>
+                <include name="smoke">
+                </include>
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.LoginTest"/>
+            <class name="tests.InventoryTest"/>
+        </classes>
+    </test>
+
+    <test name="RegressionSuite - Chrome">
+        <parameter name="browser" value="chrome"/>
+        <groups>
+            <run>
+                <include name="regression">
+                </include>
+            </run>
+        </groups>
+        <packages>
+            <package name="tests"/>
+        </packages>
+    </test>
+    <test name="RegressionSuite - Firefox">
+        <parameter name="browser" value="firefox"/>
+        <groups>
+            <run>
+                <include name="regression">
+                </include>
+            </run>
+        </groups>
+        <packages>
+            <package name="tests"/>
+        </packages>
+    </test>
+
+    <test name="LoginSuite - Chrome">
+        <parameter name="browser" value="chrome"/>
+        <groups>
+            <run>
+                <include name="login"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.LoginTest"/>
+        </classes>
+    </test>
+    <test name="LoginSuite - Firefox">
+        <parameter name="browser" value="firefox"/>
+        <groups>
+            <run>
+                <include name="login"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.LoginTest"/>
+        </classes>
+    </test>
+
+    <test name="InventorySuite - Chrome">
+        <parameter name="browser" value="chrome"/>
+        <groups>
+            <run>
+                <include name="inventory"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.InventoryTest"/>
+        </classes>
+    </test>
+    <test name="InventorySuite - Firefox">
+        <parameter name="browser" value="firefox"/>
+        <groups>
+            <run>
+                <include name="inventory"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.InventoryTest"/>
+        </classes>
+    </test>
+</suite>
